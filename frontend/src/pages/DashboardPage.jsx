@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import VideoUpload from "../components/VideoUpload";
+import VideoUpload from "../components/VideoUpload.jsx";
 import { Cell, Line, LineChart, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import PageHeader from "../components/PageHeader";
 import RiskBadge from "../components/RiskBadge";

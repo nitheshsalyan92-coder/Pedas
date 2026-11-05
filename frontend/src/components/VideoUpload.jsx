@@ -5,9 +5,9 @@ const API = "http://localhost:5000";
 
 export default function VideoUpload() {
   const [file, setFile] = useState(null);
-  const [videoId, setVideoId] = useState("");
-  const [result, setResult] = useState(null);
   const [message, setMessage] = useState("");
+  const [result, setResult] = useState(null);
+  const [videoId, setVideoId] = useState("");
 
   async function uploadVideo() {
     if (!file) {
@@ -17,7 +17,9 @@ export default function VideoUpload() {
 
     try {
       setMessage("Uploading video...");
+      setResult(null);
 
+      // Upload video
       const formData = new FormData();
       formData.append("file", file);
 
@@ -37,12 +39,15 @@ export default function VideoUpload() {
 
       setMessage("Video uploaded. Analyzing...");
 
+      // Analyze video
       const analyzeResponse = await fetch(`${API}/analyze`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ video_id: id }),
+        body: JSON.stringify({
+          video_id: id,
+        }),
       });
 
       const analyzeData = await analyzeResponse.json();
@@ -51,8 +56,15 @@ export default function VideoUpload() {
         throw new Error(analyzeData.message || "Analysis failed");
       }
 
-      setResult(analyzeData.result);
-      setMessage("Analysis completed!");
+      const analysis =
+        analyzeData.result ?? analyzeData.results?.[0];
+
+      if (!analysis) {
+        throw new Error("Analysis result not returned");
+      }
+
+      setResult(analysis);
+      setMessage("Analysis completed successfully!");
     } catch (error) {
       setMessage(error.message);
     }
@@ -63,6 +75,11 @@ export default function VideoUpload() {
       <h2 className="font-display text-xl font-bold text-navy">
         Traffic Video Analysis
       </h2>
+
+      <p className="text-sm text-slate-600">
+        Upload a traffic video to analyze vehicles,
+        pedestrians, and safety conflicts.
+      </p>
 
       <input
         type="file"
@@ -87,13 +104,12 @@ export default function VideoUpload() {
 
       {result && (
         <div className="grid gap-3 sm:grid-cols-2">
-          <p>Vehicles: {result.vehicles_detected}</p>
-          <p>Pedestrians: {result.pedestrians_detected}</p>
-          <p>Conflicts: {result.conflicts_detected}</p>
-          <p>Risk: {result.risk_level}</p>
+          <p>Vehicles: {result.vehicles_detected ?? 0}</p>
+          <p>Pedestrians: {result.pedestrians_detected ?? 0}</p>
+          <p>Conflicts: {result.conflicts_detected ?? 0}</p>
+          <p>Risk: {result.risk_level ?? "UNKNOWN"}</p>
         </div>
       )}
     </section>
   );
 }
-
