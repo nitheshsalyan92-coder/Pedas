@@ -1,0 +1,43 @@
+{
+  "far_apart": [
+    {"object_id": 1, "object_type": "pedestrian", "x": 100, "y": 100, "timestamp": 0.0, "confidence": 0.9},
+    {"object_id": 1, "object_type": "pedestrian", "x": 110, "y": 100, "timestamp": 1.0, "confidence": 0.9},
+    {"object_id": 2, "object_type": "car", "x": 800, "y": 100, "timestamp": 0.0, "confidence": 0.88},
+    {"object_id": 2, "object_type": "car", "x": 900, "y": 100, "timestamp": 1.0, "confidence": 0.88}
+  ],
+  "parallel_miss": [
+    {"object_id": 1, "object_type": "pedestrian", "x": 0, "y": 0, "timestamp": 0.0, "confidence": 0.9},
+    {"object_id": 1, "object_type": "pedestrian", "x": 0, "y": 10, "timestamp": 1.0, "confidence": 0.9},
+    {"object_id": 2, "object_type": "car", "x": 110, "y": 0, "timestamp": 0.0, "confidence": 0.9},
+    {"object_id": 2, "object_type": "car", "x": 100, "y": 0, "timestamp": 1.0, "confidence": 0.9}
+  ],
+  "meets_after_five_seconds": [
+    {"object_id": 1, "object_type": "pedestrian", "x": 0, "y": 100, "timestamp": 0.0, "confidence": 0.9},
+    {"object_id": 1, "object_type": "pedestrian", "x": 0, "y": 100, "timestamp": 1.0, "confidence": 0.9},
+    {"object_id": 2, "object_type": "car", "x": 400, "y": 100, "timestamp": 0.0, "confidence": 0.9},
+    {"object_id": 2, "object_type": "car", "x": 360, "y": 100, "timestamp": 1.0, "confidence": 0.9}
+  ],
+  "separating_but_close": [
+    {"object_id": 1, "object_type": "pedestrian", "x": 100, "y": 100, "timestamp": 0.0, "confidence": 0.9},
+    {"object_id": 1, "object_type": "pedestrian", "x": 80, "y": 100, "timestamp": 1.0, "confidence": 0.9},
+    {"object_id": 2, "object_type": "car", "x": 140, "y": 100, "timestamp": 0.0, "confidence": 0.9},
+    {"object_id": 2, "object_type": "car", "x": 180, "y": 100, "timestamp": 1.0, "confidence": 0.9}
+  ],
+  "converging_medium": [
+    {"object_id": 1, "object_type": "pedestrian", "x": 0, "y": 100, "timestamp": 0.0, "confidence": 0.93},
+    {"object_id": 1, "object_type": "pedestrian", "x": 0, "y": 100, "timestamp": 1.0, "confidence": 0.93},
+    {"object_id": 2, "object_type": "bus", "x": 200, "y": 100, "timestamp": 0.0, "confidence": 0.8},
+    {"object_id": 2, "object_type": "bus", "x": 150, "y": 100, "timestamp": 1.0, "confidence": 0.81}
+  ],
+  "converging_high": [
+    {"object_id": 1, "object_type": "person", "x": 100, "y": 200, "timestamp": 0.0, "confidence": 0.95},
+    {"object_id": 1, "object_type": "person", "x": 130, "y": 200, "timestamp": 1.0, "confidence": 0.95},
+    {"object_id": 2, "object_type": "car", "x": 220, "y": 200, "timestamp": 0.0, "confidence": 0.92},
+    {"object_id": 2, "object_type": "car", "x": 180, "y": 200, "timestamp": 1.0, "confidence": 0.92}
+  ],
+  "too_short": [
+    {"object_id": 1, "object_type": "pedestrian", "x": 100, "y": 100, "timestamp": 0.0, "confidence": 0.9},
+    {"object_id": 2, "object_type": "truck", "x": 110, "y": 100, "timestamp": 0.0, "confidence": 0.9}
+  ],
+  "empty": []
+}
