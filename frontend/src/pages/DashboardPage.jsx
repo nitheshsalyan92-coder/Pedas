@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import VideoUpload from "../components/VideoUpload";
 import { Cell, Line, LineChart, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import PageHeader from "../components/PageHeader";
 import RiskBadge from "../components/RiskBadge";
@@ -12,6 +13,7 @@ export default function DashboardPage() {
 
   return (
     <div className="space-y-6">
+      <VideoUpload />
       <PageHeader
         eyebrow="Dashboard"
         title="Sample safety overview"
