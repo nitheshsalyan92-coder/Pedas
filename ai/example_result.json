@@ -1,0 +1,59 @@
+{
+  "pedestrians_detected": 1,
+  "vehicles_detected": 1,
+  "conflicts_detected": 1,
+  "risk_level": "HIGH",
+  "safety_score": 60,
+  "alerts": [
+    "Pedestrian 1 and car 2 are 50 px apart and their paths converge in 0.7 s (miss 0 px)."
+  ],
+  "conflicts": [
+    {
+      "conflict_id": 1,
+      "pedestrian_id": 1,
+      "vehicle_id": 2,
+      "vehicle_type": "car",
+      "severity": "CRITICAL",
+      "risk_level": "HIGH",
+      "timestamp": 1.0,
+      "start_time": 0.0,
+      "end_time": 1.0,
+      "min_distance_px": 50.0,
+      "distance_px": 50.0,
+      "miss_distance_px": 0.0,
+      "closing_speed_px_s": 70.0,
+      "time_to_conflict_s": 0.71,
+      "estimated_ttc_sec": 0.71,
+      "description": "Pedestrian 1 and car 2 are 50 px apart and their paths converge in 0.7 s (miss 0 px).",
+      "reason": "Pedestrian 1 and car 2 are 50 px apart and their paths converge in 0.7 s (miss 0 px)."
+    }
+  ],
+  "conflict_details": [
+    {
+      "conflict_id": 1,
+      "pedestrian_id": 1,
+      "vehicle_id": 2,
+      "vehicle_type": "car",
+      "severity": "CRITICAL",
+      "risk_level": "HIGH",
+      "timestamp": 1.0,
+      "start_time": 0.0,
+      "end_time": 1.0,
+      "min_distance_px": 50.0,
+      "distance_px": 50.0,
+      "miss_distance_px": 0.0,
+      "closing_speed_px_s": 70.0,
+      "time_to_conflict_s": 0.71,
+      "estimated_ttc_sec": 0.71,
+      "description": "Pedestrian 1 and car 2 are 50 px apart and their paths converge in 0.7 s (miss 0 px).",
+      "reason": "Pedestrian 1 and car 2 are 50 px apart and their paths converge in 0.7 s (miss 0 px)."
+    }
+  ],
+  "summary": {
+    "total_records": 4,
+    "duration_seconds": 1.0,
+    "critical_conflicts": 1,
+    "warning_conflicts": 0,
+    "caution_conflicts": 0
+  }
+}

@@ -1,5 +1,7 @@
 """AI module for pedestrian safety: object detection, tracking, and risk analysis."""
 
+from ai.prediction import analyse_track_file, analyse_tracks, analyse_video
+
 
 def process_video(*args, **kwargs):
     """Detect and track pedestrians and vehicles in video_path."""
@@ -8,11 +10,4 @@ def process_video(*args, **kwargs):
     return _process_video(*args, **kwargs)
 
 
-def analyse_tracks(*args, **kwargs):
-    """Analyse object tracks to identify movement conflicts and overall risk."""
-    from ai.prediction import analyse_tracks as _analyse_tracks
-
-    return _analyse_tracks(*args, **kwargs)
-
-
-__all__ = ["process_video", "analyse_tracks"]
+__all__ = ["process_video", "analyse_tracks", "analyse_video", "analyse_track_file"]

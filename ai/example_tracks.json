@@ -1,0 +1,6 @@
+[
+  {"object_id": 1, "object_type": "person", "x": 100, "y": 200, "timestamp": 0.0, "confidence": 0.95},
+  {"object_id": 1, "object_type": "person", "x": 130, "y": 200, "timestamp": 1.0, "confidence": 0.95},
+  {"object_id": 2, "object_type": "car", "x": 220, "y": 200, "timestamp": 0.0, "confidence": 0.92},
+  {"object_id": 2, "object_type": "car", "x": 180, "y": 200, "timestamp": 1.0, "confidence": 0.92}
+]
