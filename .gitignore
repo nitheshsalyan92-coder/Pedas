@@ -1,0 +1,39 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pytest / testing artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Pretrained model weights
+*.pt
+*.onnx
+
+# Ultralytics runs & temporary downloads
+runs/
+
+# Environment / local configs
+.env
+.venv/
+venv/
+ENV/
+env/
+
+# IDE / Editor
+.vscode/
+.idea/
+
+# OS-generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Output videos generated from tracking/testing
+test_*.mp4
+output.mp4
+annotated_*.mp4
