@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Analyze — Pedas</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">🚦 Pedas</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="analysis.html" class="active">Analyze</a>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <h1 class="page-title">Video Analysis</h1>
+    <p class="page-subtitle">Upload a video to run pedestrian safety risk analysis</p>
+
+    <div class="upload-card" id="uploadCard">
+      <div class="upload-zone" id="uploadZone">
+        <div class="upload-icon">📁</div>
+        <p class="upload-text">Drag &amp; drop your video here</p>
+        <p class="upload-sub">or</p>
+        <label class="btn btn-primary" for="fileInput">Choose Video File</label>
+        <input type="file" id="fileInput" accept="video/*" hidden/>
+        <p class="upload-formats">Supported: MP4, AVI, MOV, MKV</p>
+      </div>
+
+      <div class="selected-file" id="selectedFile" style="display:none">
+        <div class="file-info">
+          <span class="file-icon">🎥</span>
+          <div>
+            <div class="file-name" id="fileName"></div>
+            <div class="file-size" id="fileSize"></div>
+          </div>
+        </div>
+        <button class="btn btn-primary" id="analyzeBtn" onclick="startAnalysis()">
+          🔍 Start Analysis
+        </button>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div class="loading-card" id="loadingCard" style="display:none">
+      <div class="spinner"></div>
+      <h3>Analyzing Video...</h3>
+      <p id="loadingStatus">Running YOLOv8 detection and ByteTrack tracking...</p>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+
+    <!-- Error State -->
+    <div class="error-card" id="errorCard" style="display:none">
+      <div class="error-icon">❌</div>
+      <h3>Analysis Failed</h3>
+      <p id="errorMsg">Could not connect to backend. Make sure the Flask server is running.</p>
+      <button class="btn btn-outline" onclick="resetUpload()">Try Again</button>
+    </div>
+
+    <!-- Results (shown inline after analysis) -->
+    <div id="resultsSection" style="display:none">
+      <div class="results-header">
+        <h2>Analysis Results</h2>
+        <button class="btn btn-outline" onclick="resetUpload()">Analyze Another</button>
+      </div>
+
+      <div class="risk-banner" id="riskBanner">
+        <div class="risk-label" id="riskLabel">LOW RISK</div>
+        <div class="risk-score">Safety Score: <span id="safetyScore">98</span>/100</div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-val" id="pedCount">0</div>
+          <div class="stat-desc">🚶 Pedestrians</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val" id="vehCount">0</div>
+          <div class="stat-desc">🚗 Vehicles</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val" id="conflictCount">0</div>
+          <div class="stat-desc">⚠️ Conflicts</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val" id="duration">0s</div>
+          <div class="stat-desc">⏱️ Duration</div>
+        </div>
+      </div>
+
+      <div class="alerts-card" id="alertsCard">
+        <h3>⚠️ Alerts</h3>
+        <ul id="alertsList"></ul>
+      </div>
+
+      <div class="conflicts-card" id="conflictsCard" style="display:none">
+        <h3>🔴 Conflicts Detected</h3>
+        <div id="conflictsList"></div>
+      </div>
+
+      <div class="summary-card">
+        <h3>📋 Summary</h3>
+        <div class="summary-grid" id="summaryGrid"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>🚦 Pedas — Urban Pedestrian Safety Risk Prediction &amp; Conflict Detection</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
