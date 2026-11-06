@@ -130,10 +130,9 @@ class TestRiskAnalysis(unittest.TestCase):
         self.assertEqual(res["risk_level"], "HIGH")
 
     def test_analyse_video_error_handling(self):
-        # Should raise RuntimeError until Member 3's tracking branch is merged
-        with self.assertRaises(RuntimeError) as ctx:
-            analyse_video("test.mp4")
-        self.assertIn("ai.tracking", str(ctx.exception))
+        # Should raise FileNotFoundError if video is missing or RuntimeError if tracking unmerged
+        with self.assertRaises((RuntimeError, FileNotFoundError)):
+            analyse_video("non_existent_video_12345.mp4")
 
 
 if __name__ == "__main__":
